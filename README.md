@@ -24,13 +24,16 @@ The files include data for two populations, each strain representing a different
 ```
 set.seed(2022)
 shp.us <- ne_countries(country = "United States of America",scale = "large", returnclass = "sp") #it has to be class sp
-plot(shp.us) #here we have our country silhouette
+plot(shp.us) # country silhouette
 ```
+![image](https://github.com/evangelosmourkas/Spatial-overlap-in-the-same-geographical-area/assets/73548463/45f36c48-2be1-47f7-8c54-1c70b088dbfa)
+
 ## Select 100 points within the country
 ```
 random_poly_us <- spsample(shp.us, n=100, "random") 
 plot(random_poly_us)
 ```
+![image](https://github.com/evangelosmourkas/Spatial-overlap-in-the-same-geographical-area/assets/73548463/22abc355-1180-4d4a-9eaa-44c4fdf28f68)
 
 ## Saving the coordinates of the 100 points and adding +/- 0.5 degrees to points to create squaremeters of 110square km
 ```
@@ -43,8 +46,8 @@ df.us$y.max <- df.us$y+0.5
 
 ## Loading population 1 file. In this case this is human density data in the US. This file is too big so we split it into two
 ```
-file1 = read.csv("/Volumes/EXT\ 1T\ JOSE/AMR/Human_pop_1M\ random\ before\ trim/USA_1 dom_Final.csv")
-file2 = read.csv("/Volumes/EXT\ 1T\ JOSE/AMR/Human_pop_1M\ random\ before\ trim/USA_2 dom_Final.csv")
+file1 = read.csv("Population_1_1.csv")
+file2 = read.csv("Population_2_1.csv")
 us.pop.r <- rbind(file1, file2)
 us.pop.r <- us.pop.r[us.pop.r$Population>0,]
 ```
@@ -70,6 +73,7 @@ ggplot() +
   coord_sf(crs = "+proj=lonlat +lat_0=45 +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +units=m +no_defs")+
   coord_sf(xlim = c(-167, -66.98292), ylim = c(19.03319, 69.64097), expand = TRUE)
 ```
+![image](https://github.com/evangelosmourkas/Spatial-overlap-in-the-same-geographical-area/assets/73548463/03a922f0-3c63-406a-bdfc-8733968760f2)
 
 ## Adding new coordinate system, which will replace the existing one
 ```
@@ -82,6 +86,7 @@ ggplot() +
   coord_sf(crs = "+proj=lonlat +lat_0=45 +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +units=m +no_defs")+
   coord_sf(xlim = c(-167, -66.98292), ylim = c(19.03319, 69.64097), expand = TRUE)
 ```
+![image](https://github.com/evangelosmourkas/Spatial-overlap-in-the-same-geographical-area/assets/73548463/be418af5-0a61-44cd-b7bc-776077fa7724)
 
 ## Adding population 2 values. In our case this will be wild bird observational data for _Anas acuta_
 ```
@@ -108,6 +113,8 @@ ggplot() +
   coord_sf(crs = "+proj=lonlat +lat_0=45 +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +units=m +no_defs")+
   coord_sf(xlim = c(-100, -75), ylim = c(22, 40), expand = TRUE)
 ```
+![image](https://github.com/evangelosmourkas/Spatial-overlap-in-the-same-geographical-area/assets/73548463/a23249b7-aefd-4698-83bb-d0228fd7d28c)
+
 
 # Overlap of population 1 (human) and population 2 (wild bird) distributions
 ## R Packages for calculating overlap
@@ -164,6 +171,7 @@ nncluster <- function(xy, species){
 Note: nncluster() function works best if provided equal data points to determine the overlap from. Thus we randomly select 5000 data points from the human and bird population data. Remember that our currently our human and bird data corresponds to coordinates within the 100 squares we selected earlier. 5000 point coordinates should be an even representation of both datasets.
 
 ## Calculating overlap. The calculated value in the end is referred to the paper as the _proximity to urbanisation_ score
+```
 set.seed(2022)
 spess <- c(NA)
 prox <- c(NA)
@@ -186,7 +194,6 @@ over
 
 colnames(over)[2] <- "prox"
 over$country <- rep("USA", 13)
-```
 prox.result <- rbind(prox.result, over)
 ```
 # How to cite
