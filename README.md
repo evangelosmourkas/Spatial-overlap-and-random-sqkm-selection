@@ -10,7 +10,7 @@ The files include data for two populations, each strain representing a different
 * **_Population_data_1_**: data for population 1 (latitude, longitude, population density score)
 * **_Population_data_2_**: data for population 2 (latitude, longitude, population density score)
 
-# Randomly select 100 squares (1x1 degree of latitude and longitude) within the territory of a country
+# 1. Randomly select 100 squares (1x1 degree of latitude and longitude) within the territory of a country
 ## R Packages for Selecting Random Squares in the same geographical space (e.g. country)
 * ggplot2
 * sf
@@ -116,7 +116,7 @@ ggplot() +
 ![image](https://github.com/evangelosmourkas/Spatial-overlap-in-the-same-geographical-area/assets/73548463/a23249b7-aefd-4698-83bb-d0228fd7d28c)
 
 
-# Overlap of population 1 (human) and population 2 (wild bird) distributions
+# 2. Calculating Spatial Overlap
 ## R Packages for calculating overlap
 * fields
 Note: for function rdist()
@@ -170,7 +170,7 @@ nncluster <- function(xy, species){
 ```
 Note: nncluster() function works best if provided equal data points to determine the overlap from. Thus we randomly select 5000 data points from the human and bird population data. Remember that our currently our human and bird data corresponds to coordinates within the 100 squares we selected earlier. 5000 point coordinates should be an even representation of both datasets.
 
-## Calculating overlap. The calculated value in the end is referred to the paper as the _proximity to urbanisation_ score
+## Calculating spatial overlap of population 1 (human) and population 2 (wild bird) distributions. The calculated value in the end is referred to the paper as the _proximity to urbanisation_ score
 ```
 set.seed(2022)
 spess <- c(NA)
