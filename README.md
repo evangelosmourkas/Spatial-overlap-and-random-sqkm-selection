@@ -1,4 +1,4 @@
-# Spatial-overlap-in-the-same-geographical-area
+# Spatial Overlap and Random sqkm selection in a geographical space
 1. Randomly select squares in the same geographical space (e.g. country)
 2. Estimating spatial overlap between data points from two different populations occupying the same geographical space.
 
