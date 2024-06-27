@@ -6,7 +6,7 @@
 The following code has been developed in collaboration with **Jose Valdebenito** and functions of code used in by Marcel Cardillo & Dan L. Warren in _"Analysing patterns of spatial and niche overlap among species at multiple resolutions"_ paper published in 2016. The methodology underlying the use of the scripts has been detailed in the preprint _"Urbanization spreads antimicrobial resistant enteric pathogens in wild bird microbiomes"_. Please refer to citation information at the bottom of this document.
 
 ## Files Summary
-The files include data for two populations, each strain representing a different condition. Briefly, illumina sequence reads were mapped to a reference transcriptome index using Salmon. Gene expression was calculated in units of transcripts per million (TPM) by Salmon, a relative abundance measure used for downstream analysis with DESeq2. Each directory has the following:
+The files include data for two populations, each strain representing a different condition. Each directory has the following:
 * **_Population_data_1_**: data for population 1 (latitude, longitude, population density score)
 * **_Population_data_2_**: data for population 2 (latitude, longitude, population density score)
 
