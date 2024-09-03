@@ -2,8 +2,8 @@
 1. Randomly select squares in the same geographical space (e.g. country)
 2. Estimating spatial overlap between data points from two different populations occupying the same geographical space.
 
-## Preprint
-The following code has been developed in collaboration with **Jose Valdebenito** and functions of code used in by Marcel Cardillo & Dan L. Warren in _"Analysing patterns of spatial and niche overlap among species at multiple resolutions"_ paper published in 2016. The methodology underlying the use of the scripts has been detailed in the preprint _"Urbanization spreads antimicrobial resistant enteric pathogens in wild bird microbiomes"_. Please refer to citation information at the bottom of this document.
+## Publication
+The following code has been developed in collaboration with **Jose Valdebenito** and functions of code used in by Marcel Cardillo & Dan L. Warren in _"Analysing patterns of spatial and niche overlap among species at multiple resolutions"_ paper published in 2016.  The methodology underlying the use of the script has been detailed in the article "Proximity to humans is associated with antimicrobial-resistant enteric pathogens in wild bird microbiomes" published in Current Biology.
 
 ## Files Summary
 The files include data for two populations, each strain representing a different condition. Each directory has the following:
@@ -197,5 +197,4 @@ over$country <- rep("USA", 13)
 prox.result <- rbind(prox.result, over)
 ```
 # How to cite
-Mourkas E, Valdebenito JO, Marsh H, Hitchings MD, Cooper KK, Parker CT, Székely T, Johansson H, Ellström P, Pascoe B, Waldenström J, Sheppard SK (2023) **Urbanisation spreads antimicrobial resistant enteric pathogens in wild bird microbiomes**.
-bioRxiv doi: 10.1101/2023.07.11.548564
+Mourkas E, Valdebenito JO, Marsh H, Hitchings MD, Cooper KK, Parker CT, Székely T, Johansson H, Ellström P, Pascoe B, Waldenström J, Sheppard SK (2024) Proximity to humans is associated with antimicrobial resistant enteric pathogens in wild bird microbiomes. Current Biology. doi: https://doi.org/10.1016/j.cub.2024.07.059
